@@ -1,0 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const ParkingController = require('../controller/parkingController');
+const parkingController = require('../controller/parkingController');
+
+
+// Vehicle entry endpoint
+router.post('/entry', ParkingController.vehicleEntry);
+
+// Vehicle exit endpoint
+router.post('/exit/:vehicleId/:vehicleType', ParkingController.vehicleExit);
+
+// Available spots by floor endpoint
+router.get('/availablespots', parkingController.getAvailableSpotsByFloor);
+
+module.exports = router;
